@@ -17,6 +17,7 @@ var totalArchers = 0;         // number of kids who are actually doing archery i
 // - assign the value of kidsWhoWantToSwim to totalSwimmers
 // - assign the value of kidsWhoWantDoArchery to totalArchers
 
+
 // If kidsWhoWantToSwim is odd, then at least one kid doesn't have a swimming buddy. 
 // To avoid leaving anyone out, we'll just do archery that afternoon.
 // - add the values of kidsWhoWantToSwim and kidsWhoWantDoArchery and assign the result to totalArchers
@@ -28,7 +29,12 @@ var totalArchers = 0;         // number of kids who are actually doing archery i
 // ------------------------
 
 // Write your code here:
-
+if(kidsWhoWantToSwim % 2 === 0) {
+     totalSwimmers = kidsWhoWantToSwim;
+     totalArchers = kidsWhoWantDoArchery;
+} else if(kidsWhoWantToSwim % 3 === 1) {
+    totalArchers=kidsWhoWantToSwim+kidsWhoWantDoArchery;
+}
 
 
 // When you're finished, save the changes and open practice/02-if-statements/index.html with your browser. (The html file is is the same subfolder as this file, and it already includes code to reference this file.)
