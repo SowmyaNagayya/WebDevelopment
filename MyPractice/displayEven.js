@@ -24,10 +24,13 @@ function validate() {
         // So long as we actually HAVE a staring and ending value...
         if (!stepInput) stepInput = 2;
         // If we don't have an increment given, let's count by twos!
-        contentString += "<p>The values between " + startInput + " and " + endInput + " in increments of " + stepInput + ":</p><ul>";
+        contentString += "<p>Here are the evn numbers between " + startInput + " and " + endInput + " by" + stepInput +"s" +":</p><ul>";
         for (i = startInput; i <= endInput; i += stepInput) {
           // If we are here, we have all three: start, end and increment
-          contentString += "<li>" + i + "</li>";
+          if(i%2 === 0) {
+            contentString += "<li>" + i + "</li>";
+          }
+          //contentString += "<li>" + i + "</li>";
         }
         contentString += "</ul>";
         // We've finished formatting the string, 
@@ -36,6 +39,8 @@ function validate() {
         //   document.writeln is considered bad.
         
         displayButton.innerHTML = contentString;
+        //dont't miss this return otherwise your imput value will be NaN
+        return false;
       }
     }
  
