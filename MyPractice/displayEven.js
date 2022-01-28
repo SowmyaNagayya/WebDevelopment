@@ -20,10 +20,10 @@ function validate() {
     console.log(startInput)
     var endInput = parseInt(inputForEndNum.value);
     var stepInput = parseInt(inputForSetNum.value);
+    // So long as we actually HAVE a staring and ending value...
     if (startInput && endInput) {
-        // So long as we actually HAVE a staring and ending value...
-        if (!stepInput) stepInput = 2;
         // If we don't have an increment given, let's count by twos!
+        if (!stepInput) stepInput = 2;        
         contentString += "<p>Here are the evn numbers between " + startInput + " and " + endInput + " by" + stepInput +"s" +":</p><ul>";
         for (i = startInput; i <= endInput; i += stepInput) {
           // If we are here, we have all three: start, end and increment
