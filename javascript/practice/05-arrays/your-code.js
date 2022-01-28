@@ -65,17 +65,24 @@ function combine(a, b) {
 // from the first and return the result.
 // The function should NOT alter either parameter.
 // Write your code here:
+function subtractArray(a,b) {
+   
+    return a.filter(item => !b.includes(item)); 
+    
+    
+}
 
 
 
 // Uncomment the code below to verify your function is working.
-// console.log("subtractArray =====");
-// var result = subtractArray([1, 2, 3, 4, 5], [2, 4, 6]);
-// console.log("expected: 1,3,5\nactual: %s", result);
-// result = subtractArray(["Neptune", "Uranus", "Saturn", "Pluto"], ["Pluto"]);
-// console.log("expected: Neptune,Uranus,Saturn\nactual: %s", result);
-// result = subtractArray([1, 2, 3, 1, 2, 3, 1, 2, 3], [1, 3]);
-// console.log("expected: 2,2,2\nactual: %s", result);
+ console.log("subtractArray =====");
+ var result = subtractArray([1, 2, 3, 4, 5], [2, 4, 6]);
+ console.log(result)
+ console.log("expected: 1,3,5\nactual: %s", result);
+ result = subtractArray(["Neptune", "Uranus", "Saturn", "Pluto"], ["Pluto"]);
+ console.log("expected: Neptune,Uranus,Saturn\nactual: %s", result);
+ result = subtractArray([1, 2, 3, 1, 2, 3, 1, 2, 3], [1, 3]);
+ console.log("expected: 2,2,2\nactual: %s", result);
 
 
 
