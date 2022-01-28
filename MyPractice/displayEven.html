@@ -1,42 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CODE-ALONG: Display Mouse Position</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="container">
-        <h1>CODE-ALONG: Display Even </h1>
-        <h2>Sample</h2>
-        <form>
-            <div class="form-group row">
-              <label for="startingnumber" class="col-sm-2 col-form-label">Starting Number</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputStartText">
-              </div>
+      <h1>CODE-ALONG: Display Even</h1>
+      <h2>Sample</h2>
+      <form
+        name="numberFun"
+        class="needs-validation"
+        onsubmit="return validate();"
+        novalidate
+      >
+        <div class="form-group row">
+          <label for="startingnumber" class="col-sm-2 col-form-label"
+            >Starting Number</label
+          >
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputStartText" />
+            <div class="invalid-feedback">
+              Starting Number is required and must be a number.
             </div>
-            <div class="form-group row">
-              <label for="endingnumber" class="col-sm-2 col-form-label">Ending Number</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputEndText">
-              </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="endingnumber" class="col-sm-2 col-form-label"
+            >Ending Number</label
+          >
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputEndText" />
+            <div class="invalid-feedback">
+              Ending Number is required and must be a number.
             </div>
-            <div class="form-group row">
-                <label for="step" class="col-sm-2 col-form-label">Step</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputStep">
-                </div>
-              </div>
-            <div>
-              <button type="button" class="btn btn-primary">Display Evens</button>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="step" class="col-sm-2 col-form-label">Step</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputStep" />
+            <div class="invalid-feedback">
+              step required and must be a number.
             </div>
-          </form>
+          </div>
+        </div>
+        <div>
+          <button id="displayBtn" type="submit" class="btn btn-primary">
+            Display Evens
+          </button>
+        </div>
+      </form>
+      <div id="displayCnt"></div>
     </div>
     <script src="displayEven.js"></script>
-</body>
+  </body>
 </html>
