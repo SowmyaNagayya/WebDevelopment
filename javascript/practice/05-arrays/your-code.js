@@ -38,21 +38,7 @@ function findMax(numbers) {
 // The function should create a new, empty array and then add all elements from each parameter array to it.
 // The function should NOT alter either parameter.
 // Write your code here:
-// var item1 = "";
-// var item2 = "";
-// function combine(arr1, arr2) {
-//      arr1 = []; 
-//      arr2 = [];
-//      for(var i=0; i<=item1.length;i++) {
-//         arr1.push(item1[i])
-//      }
-//      for(var i=0; i<=item2.length;i++) {
-//         arr2.push(item2[i])
-//      }
-//      return [arr1,arr2].toString();
-     
-     
-// }
+
 
 function combine(a, b) {
 
