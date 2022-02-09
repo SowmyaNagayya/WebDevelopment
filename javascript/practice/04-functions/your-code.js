@@ -79,7 +79,54 @@ function max(num1, num2, num3) {
 
 
 
-/**********************************
- * The Software Guild
- * Copyright (C) 2019 Wiley edu LLC - All Rights Reserved
- *********************************/
+// /**********************************
+//  * The Software Guild
+//  * Copyright (C) 2019 Wiley edu LLC - All Rights Reserved
+//  *********************************/
+
+// var a = [6, 42, 11, 7, 1, 42]
+
+// function solution(x,y,array) {
+//     var n = array.length;
+//     var result = -1;
+//     var nx = 0;
+//     var ny = 0;
+//     for(var i=0;i<n;i++) {
+//         if(n[i]===x) {
+//             nx+=1;
+//         } else {
+//             if(n[i]===y) {
+//                 ny+=1;
+//             }
+//         }
+//         if((nx!==0)&&(nx===ny)) {
+//             result=i;
+//         }
+//         if(nx===ny) {
+//             result=i
+//         }
+//         return result;
+//     }
+// }
+
+// var res = solution(7,42,a);
+// console.log(res)
+// var array = [11,1,8,12,14]
+// function solution(A) {
+//     A.sort();
+//     console.log(A)
+//     var i=0;
+//     if(A.length<=0) {
+//         return false;
+//     }
+
+//     while(i<A.length) {
+//         if(A[i+1] - A[i] ===1) {
+//             return true;
+//         } i++;
+//     }
+//     return false;
+// }
+
+// var res = solution(array);
+// console.log(res)
