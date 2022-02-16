@@ -39,26 +39,26 @@ const ContactTableRow = ({ contact }) => {
 class ContactTable extends React.Component {
      // this static property will initialize a prop with data
     // if it hasn't been provided by the parent component
-    static defaultProps = {
-        contacts: [
-            {
-                "contactId": 1,
-                "firstName": "Still Fake",
-                "lastName": "Contact",
-                "company": "Unknown Inc.",
-                "phone": "000-0000",
-                "email": "stillfake@unknown.io"
-            },
-            {
-                "contactId": 2,
-                "firstName": "So Mysterious",
-                "lastName": "Contact",
-                "company": "Unknown Inc.",
-                "phone": "000-0000",
-                "email": "somysterious@unknown.io"
-            }
-        ]
-    }
+    // static defaultProps = {
+    //     contacts: [
+    //         {
+    //             "contactId": 1,
+    //             "firstName": "Still Fake",
+    //             "lastName": "Contact",
+    //             "company": "Unknown Inc.",
+    //             "phone": "000-0000",
+    //             "email": "stillfake@unknown.io"
+    //         },
+    //         {
+    //             "contactId": 2,
+    //             "firstName": "So Mysterious",
+    //             "lastName": "Contact",
+    //             "company": "Unknown Inc.",
+    //             "phone": "000-0000",
+    //             "email": "somysterious@unknown.io"
+    //         }
+    //     ]
+    // }
     render() {
         // Here is a debug method to monitor incoming contact data
         console.log("Rendering Contact Table:")
