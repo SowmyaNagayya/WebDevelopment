@@ -103,8 +103,62 @@ class App extends React.Component {
     if (event) event.preventDefault();
     let contactId = event.target.value;
     console.log(`Editing contact id ${contactId}`)
-    this.setState({ showEditModal : true})
- }
+    // submit a GET request to the /contact/{contactId} endpoint
+      // the response should come back with the associated contact's JSON
+      fetch(SERVICE_URL+'/contact/'+contactId)
+      .then(response => response.json())
+      .then(data => {
+          console.log('Success:', data);
+          this.setState(
+            { editContactData : data , showEditModal : true}
+          )
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
+  }
+
+  //Create OnChange & OnSubmit Event Handlers for edit button with existing data
+  handleEditFormChange = (event) => {
+
+    let inputName = event.target.name;
+    let inputValue = event.target.value;
+    let contactInfo = this.state.editContactData;
+
+    console.log(`Something changed in ${inputName} : ${inputValue}`)
+
+    if(contactInfo.hasOwnProperty(inputName)){
+        contactInfo[inputName] = inputValue;
+        this.setState({ editContactData : contactInfo })
+    }
+
+}
+
+handleEditFormSubmit = (event) => {
+    if (event) event.preventDefault();
+    let contactId = event.target.value;
+    console.log(`Submitting edit for contact id ${contactId}`)
+    console.log(this.state.editContactData)
+
+    fetch(SERVICE_URL+'/contact/'+contactId, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.state.editContactData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        this.setState({ showEditModal : false })
+        this.loadContactData();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+}
+ 
   //We want to use our class component's lifecycle method componentDidMount, 
   //a special method built into the component class that can be overridden with customized behavior. 
   //This method will run after a React component has been mounted to the view.
@@ -150,6 +204,8 @@ class App extends React.Component {
         </Row>
         <ContactModal
          show={this.state.showEditModal}
+         handleSubmit={this.handleEditFormSubmit}
+         handleChange={this.handleEditFormChange}
          handleClose={this.handleEditModalClose}
          contactData={this.state.editContactData} />
       </Container>
