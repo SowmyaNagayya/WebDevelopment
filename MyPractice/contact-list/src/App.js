@@ -158,6 +158,23 @@ handleEditFormSubmit = (event) => {
     });
 
 }
+
+//delete contact data
+handleDeleteContact = (event) => {
+  if (event) event.preventDefault();
+  let contactId = event.target.value;
+  console.log(`Submitting delete for contact id ${contactId}`)
+
+  fetch(SERVICE_URL+'/contact/'+contactId, {
+      method: 'DELETE',
+  })
+  .then(data => {
+      this.loadContactData();
+  })
+  .catch((error) => {
+      console.error('Error:', error);
+  });
+}
  
   //We want to use our class component's lifecycle method componentDidMount, 
   //a special method built into the component class that can be overridden with customized behavior. 
@@ -192,7 +209,8 @@ handleEditFormSubmit = (event) => {
           <Col sm={8}>
             <h2>My Contacts</h2>
             <ContactTable contacts={this.state.contactData}
-                          handleEdit={this.handleEditModalOpen} />
+                          handleEdit={this.handleEditModalOpen} 
+                          handleDelete={this.handleDeleteContact}/>
           </Col>
           <Col sm={4}>
             <h2>Add New Contact</h2>
