@@ -11,6 +11,7 @@ class App extends React.Component {
 
   state = {
     loading: false,
+    showEditModal: false,
     contactData: [
       {
         "contactId": 1, 
@@ -26,6 +27,14 @@ class App extends React.Component {
         company: '',
         phone: '',
         email: ''
+      },
+      editContactData: {
+        "contactId": 42,
+        "firstName": "Zaphod",
+        "lastName": "Beeblebrox",
+        "company": "Heart of Gold",
+        "phone": "000-0000",
+        "email": "prez@badnews.us"
       }
   }
   
@@ -82,6 +91,20 @@ class App extends React.Component {
         { contactData: data, loading: false }
       ))
   }
+
+  //EventHandlers for Open and Close ContactModal
+  handleEditModalClose = (event) => {
+    console.log("Closing Edit Modal")
+    this.setState({ showEditModal : false})
+ }
+
+ handleEditModalOpen = (event) => {
+    console.log("Opening Edit Modal")
+    if (event) event.preventDefault();
+    let contactId = event.target.value;
+    console.log(`Editing contact id ${contactId}`)
+    this.setState({ showEditModal : true})
+ }
   //We want to use our class component's lifecycle method componentDidMount, 
   //a special method built into the component class that can be overridden with customized behavior. 
   //This method will run after a React component has been mounted to the view.
@@ -114,7 +137,8 @@ class App extends React.Component {
         <Row>
           <Col sm={8}>
             <h2>My Contacts</h2>
-            <ContactTable contacts={this.state.contactData} />
+            <ContactTable contacts={this.state.contactData}
+                          handleEdit={this.handleEditModalOpen} />
           </Col>
           <Col sm={4}>
             <h2>Add New Contact</h2>
@@ -124,7 +148,10 @@ class App extends React.Component {
                          contactData={this.state.newContactData} />
           </Col>
         </Row>
-        {/* <ContactModal /> */}
+        <ContactModal
+         show={this.state.showEditModal}
+         handleClose={this.handleEditModalClose}
+         contactData={this.state.editContactData} />
       </Container>
     );
   }
