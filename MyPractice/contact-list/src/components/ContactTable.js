@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button } from 'react-bootstrap'
+import { Table, Button } from 'react-bootstrap';
 
 //we could actually declare each of these new components within their own file as we have with the other components we've designed so far, 
 //these new components will only be used within our ContactTable. 
